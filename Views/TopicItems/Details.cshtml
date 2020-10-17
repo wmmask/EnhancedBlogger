@@ -1,0 +1,43 @@
+﻿@model EnhancedBlogger.Models.TopicItem
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TopicItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicItemThought)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TopicItemThought)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemCreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ItemCreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogPost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogPost.BlogText)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteTopic)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoteTopic.NoteTopicComment)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TopicItemId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

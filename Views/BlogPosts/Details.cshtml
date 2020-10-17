@@ -1,0 +1,43 @@
+﻿@model EnhancedBlogger.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BlogPost</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogPostTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogPostTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogText)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogText)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostCreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostCreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogInfo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogInfo.BlogInfoId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BlogPostId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

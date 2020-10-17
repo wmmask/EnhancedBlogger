@@ -1,0 +1,47 @@
+﻿@model EnhancedBlogger.Models.TopicItem
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>TopicItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NoteTopicId" class="control-label"></label>
+                <select asp-for="NoteTopicId" class ="form-control" asp-items="ViewBag.NoteTopicId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogPostId" class="control-label"></label>
+                <select asp-for="BlogPostId" class ="form-control" asp-items="ViewBag.BlogPostId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TopicItemThought" class="control-label"></label>
+                <input asp-for="TopicItemThought" class="form-control" />
+                <span asp-validation-for="TopicItemThought" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemCreateDate" class="control-label"></label>
+                <input asp-for="ItemCreateDate" class="form-control" />
+                <span asp-validation-for="ItemCreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

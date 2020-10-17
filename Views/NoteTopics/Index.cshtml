@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EnhancedBlogger.Models.NoteTopic>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteTopicTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteTopicComment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TopicCreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserProfile)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteTopicTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteTopicComment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TopicCreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserProfile.Bio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NoteTopicId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NoteTopicId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NoteTopicId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

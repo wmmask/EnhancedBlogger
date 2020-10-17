@@ -1,0 +1,46 @@
+﻿@model EnhancedBlogger.Models.BlogInfo
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BlogInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogInfoTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogInfoTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InfoCreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InfoCreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogSubTheme)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogSubTheme.BlogSubThemetitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Bio)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BlogInfoId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

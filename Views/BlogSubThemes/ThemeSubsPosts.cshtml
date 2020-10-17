@@ -1,0 +1,47 @@
+﻿@model EnhancedBlogger.ViewModels.ASubthemesBlogsViewModel
+@{
+    ViewData["Title"] = "Blog Posts For A Theme & A Subtheme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Hey Folks Lets Look at Some Blog titles222222!!!!!!!!1</h1>
+<p>I'm listing a theme ID and then I'm listing a Theme name (BlogThemetitle)</p>
+@*
+    <h2>@Model.thisSubThemes.BlogSubThemetitle</h2>
+*@
+<h1>Choose a Post!</h1>
+<p>I'm going to try and just list posts that bfall under my subtheme being presented!</p>
+
+<div>
+    @{
+        foreach (var item in Model.blogInfo)
+        {   <p>@Html.DisplayFor(modelItem => item.BlogInfoTitle)</p>
+            int d;
+            d = item.BlogInfoId;
+            switch (d)
+            {
+                case 1:
+                    <a href="/BlogSubThemes/ThemeSubsPosts/1">Choose @item.BlogInfoTitle</a>
+                    break;
+                case 2:
+                    <a href="/BlogSubThemes/ThemeSubsPosts/2">Choose @item.BlogInfoTitle</a>
+                    break;
+                case 3:
+                    <a href="/BlogSubThemes/ThemeSubsPosts/3">Choose @item.BlogInfoTitle</a>
+                    break;
+                case 4:
+                    <a href="/BlogSubThemes/ThemeSubsPosts/4">Choose @item.BlogInfoTitle</a>
+                    break;
+            }
+
+        }
+    }
+
+</div>
+
+
+
+
+
+
+
+

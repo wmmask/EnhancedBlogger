@@ -1,0 +1,46 @@
+﻿@model EnhancedBlogger.Models.LogGrouping
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LogGrouping</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LogGroupingtitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LogGroupingtitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LogGroupingComment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LogGroupingComment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupingCreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GroupingCreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Bio)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="LogGroupingId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+﻿@model EnhancedBlogger.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>BlogPost</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BlogPostId" />
+            <div class="form-group">
+                <label asp-for="BlogInfoId" class="control-label"></label>
+                <select asp-for="BlogInfoId" class="form-control" asp-items="ViewBag.BlogInfoId"></select>
+                <span asp-validation-for="BlogInfoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogPostTitle" class="control-label"></label>
+                <input asp-for="BlogPostTitle" class="form-control" />
+                <span asp-validation-for="BlogPostTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogText" class="control-label"></label>
+                <input asp-for="BlogText" class="form-control" />
+                <span asp-validation-for="BlogText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostCreateDate" class="control-label"></label>
+                <input asp-for="PostCreateDate" class="form-control" />
+                <span asp-validation-for="PostCreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

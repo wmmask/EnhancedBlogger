@@ -1,0 +1,37 @@
+﻿@model EnhancedBlogger.Models.TopicLink
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TopicLink</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicLinkRemark)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TopicLinkRemark)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkCreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LinkCreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicItem)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TopicItem.TopicItemId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TopicLinkId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

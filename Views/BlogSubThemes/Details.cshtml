@@ -1,0 +1,37 @@
+﻿@model EnhancedBlogger.Models.BlogSubTheme
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BlogSubTheme</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogSubThemetitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogSubThemetitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubThemeCreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubThemeCreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogTheme)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogTheme.BlogThemetitle)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BlogSubThemeId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

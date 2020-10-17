@@ -1,0 +1,43 @@
+﻿@model EnhancedBlogger.Models.LogGrouping
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LogGrouping</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LogGroupingtitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LogGroupingtitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LogGroupingComment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LogGroupingComment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupingCreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GroupingCreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Bio)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.LogGroupingId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

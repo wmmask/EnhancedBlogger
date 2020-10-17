@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EnhancedBlogger.Models.BlogPost>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogPostTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostCreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogInfo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogPostTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostCreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogInfo.BlogInfoId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BlogPostId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BlogPostId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BlogPostId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

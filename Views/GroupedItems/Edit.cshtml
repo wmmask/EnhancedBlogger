@@ -1,0 +1,50 @@
+﻿@model EnhancedBlogger.Models.GroupedItem
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>GroupedItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="GroupedItemId" />
+            <div class="form-group">
+                <label asp-for="LogGroupingId" class="control-label"></label>
+                <select asp-for="LogGroupingId" class="form-control" asp-items="ViewBag.LogGroupingId"></select>
+                <span asp-validation-for="LogGroupingId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogPostId" class="control-label"></label>
+                <select asp-for="BlogPostId" class="form-control" asp-items="ViewBag.BlogPostId"></select>
+                <span asp-validation-for="BlogPostId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupedItemComment" class="control-label"></label>
+                <input asp-for="GroupedItemComment" class="form-control" />
+                <span asp-validation-for="GroupedItemComment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemCreateDate" class="control-label"></label>
+                <input asp-for="ItemCreateDate" class="form-control" />
+                <span asp-validation-for="ItemCreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

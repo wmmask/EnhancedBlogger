@@ -1,0 +1,46 @@
+﻿@model EnhancedBlogger.Models.GroupedItem
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GroupedItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupedItemComment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GroupedItemComment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemCreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ItemCreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogPost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogPost.BlogText)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LogGrouping)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LogGrouping.LogGroupingComment)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="GroupedItemId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

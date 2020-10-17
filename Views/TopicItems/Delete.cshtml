@@ -1,0 +1,46 @@
+﻿@model EnhancedBlogger.Models.TopicItem
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TopicItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicItemThought)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TopicItemThought)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemCreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ItemCreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogPost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogPost.BlogText)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteTopic)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoteTopic.NoteTopicComment)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TopicItemId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

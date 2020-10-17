@@ -1,0 +1,45 @@
+﻿@model EnhancedBlogger.Models.TopicLink
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>TopicLink</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TopicLinkId" />
+            <div class="form-group">
+                <label asp-for="TopicItemId" class="control-label"></label>
+                <select asp-for="TopicItemId" class="form-control" asp-items="ViewBag.TopicItemId"></select>
+                <span asp-validation-for="TopicItemId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TopicLinkRemark" class="control-label"></label>
+                <input asp-for="TopicLinkRemark" class="form-control" />
+                <span asp-validation-for="TopicLinkRemark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinkCreateDate" class="control-label"></label>
+                <input asp-for="LinkCreateDate" class="form-control" />
+                <span asp-validation-for="LinkCreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

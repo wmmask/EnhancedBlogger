@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EnhancedBlogger.Models.GroupedItem>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupedItemComment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemCreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogPost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogGrouping)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupedItemComment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemCreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogPost.BlogText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogGrouping.LogGroupingComment)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GroupedItemId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GroupedItemId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GroupedItemId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

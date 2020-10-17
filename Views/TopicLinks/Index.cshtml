@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EnhancedBlogger.Models.TopicLink>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TopicLinkRemark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinkCreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TopicItem)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TopicLinkRemark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinkCreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TopicItem.TopicItemId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TopicLinkId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TopicLinkId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TopicLinkId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

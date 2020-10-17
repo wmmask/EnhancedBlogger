@@ -1,0 +1,96 @@
+﻿@model IEnumerable<EnhancedBlogger.Models.BlogTheme>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/untitled.png" alt="ASP.NET" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p><a href="/BlogThemes/ThemesAndSubThemes/6">Choose This Theme</a> </p>
+                
+                @{ int id; id = 6; }
+                @foreach (var item in Model)
+                {
+                    int m = item.BlogThemeId;
+                    if (m == id)
+                    {@Html.DisplayFor(modelItem => item.BlogThemetitle)
+                    <p>@Html.DisplayFor(modelItem => item.BlogThemeId)</p>
+                }
+            }
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/untitled2.png" alt="Visual Studio" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p><a href="/BlogThemes/ThemesAndSubThemes/7">Choose This Theme</a> </p>
+               
+                @{ id = 7; }
+                @foreach (var item in Model)
+                {
+                    int m = item.BlogThemeId;
+                    if (m == id)
+                    {@Html.DisplayFor(modelItem => item.BlogThemetitle)
+                    <p>@Html.DisplayFor(modelItem => item.BlogThemeId)</p>
+                }
+            }
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/untitled3.png" alt="Microsoft Azure" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p><a href="/BlogThemes/ThemesAndSubThemes/8">Choose This Theme</a> </p>
+
+                @{ id = 8; }
+                @foreach (var item in Model)
+                {
+                    int m = item.BlogThemeId;
+                    if (m == id)
+                    {@Html.DisplayFor(modelItem => item.BlogThemetitle)
+                    <p>@Html.DisplayFor(modelItem => item.BlogThemeId)</p>
+                }
+            }
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/untitled4.png" alt="Microsoft Azure" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p><a href="/BlogThemes/ThemesAndSubThemes/9">Choose This Theme</a> </p>
+              
+                @{ id = 9;
+                }
+                @foreach (var item in Model)
+                {
+                    int m = item.BlogThemeId;
+                    if (m == id)
+                    {@Html.DisplayFor(modelItem => item.BlogThemetitle)
+                    <p>@Html.DisplayFor(modelItem => item.BlogThemeId)</p>
+                }
+            }
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<h1>BlogThemes-Index</h1>
+
+

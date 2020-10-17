@@ -1,0 +1,80 @@
+﻿@model EnhancedBlogger.ViewModels.APersonalLogViewModel
+@{
+    ViewData["Title"] = "me & A Subtheme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+    For more information on enabling MVC for empty projects,
+    visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>My Personal Log</h1>
+<h5>This log is for tracking and organizing into groups or logs the blog posts of interest to me.</h5>
+@{
+    <div>
+        @*//Group that exists, list it out and: *@
+
+        @foreach (var grp in logListGroups)
+        {   @*// list here a group heading*@
+            <div>
+                @Html.DisplayFor(m => grp.LogGroupingtitle)
+                <p> @Html.DisplayFor(m => grp.LogGroupingComment) </p>
+                <p> @Html.DisplayFor(m => grp.GroupingCreateDate) </p>
+            </div>
+            <ul>
+                @*//list out all the items within each group*@
+                @foreach (var item in itemsListInGroup)
+                {
+                <li>
+                    @Html.DisplayFor(m => item.GroupedItemId)
+                    @Html.DisplayFor(m => item.LogGroupingId)
+                    @Html.DisplayFor(m => item.BlogPostId)
+                    @Html.DisplayFor(m => item.GroupedItemComment)
+                    @Html.DisplayFor(m => item.ItemCreateDate)
+                </li>
+                }
+            </ul>
+        }
+    </div>
+    <div>
+        @*here we place just a list of the groups*@
+        @foreach (var grp in logListGroups)
+        {
+            <div>
+                @Html.DisplayFor(m => grp.LogGroupingtitle)
+                <p> @Html.DisplayFor(m => grp.LogGroupingComment) </p>
+                <p> @Html.DisplayFor(m => grp.GroupingCreateDate) </p>
+            </div>
+        }
+    </div>
+    <div>
+        @*here we place just a list of the WorkSpace topicsgroups*@
+        @* //Workspace Groupsso need to add workspace grouping to model
+            that exists, list it out *@
+        @foreach (var wrk in logListNote)
+        {
+        <div>
+                 @Html.DisplayFor(m => wrk.NoteTopicId)
+            <p> @Html.DisplayFor(m => wrk.NoteTopicTitle) </p>
+            <p> @Html.DisplayFor(m => wrk.TopicCreateDate) </p>
+        </div>
+        }
+    </div>      
+}
+
+@*
+    public BlogTheme logTheme;
+    public BlogSubTheme logSubThemes;
+    public BlogInfo logInfo;
+    public BlogPost logPost;
+    public IEnumerable<BlogTheme> logListTheme;
+    public IEnumerable<BlogSubTheme> logListSubTheme;
+    public IEnumerable<BlogInfo> logListInfo;
+    public IEnumerable<BlogPost> logListPost;
+
+    public LogGrouping logGroups;
+    public GroupedItem itemsInGroup;
+    public IEnumerable<LogGrouping> logListGroups;
+    public IEnumerable<GroupedItem> itemsListInGroup;
+*@
