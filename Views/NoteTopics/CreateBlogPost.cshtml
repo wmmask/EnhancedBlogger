@@ -1,0 +1,59 @@
+﻿@model EnhancedBlogger.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Create a New Blog Post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create a new blog post</h2>
+<h4>Add your input to the discussion.BlogPost</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateBlogPost">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @{
+                int this2ID = ViewBag.my2ID;
+                Model.BlogInfoId = this2ID;
+
+                @ViewBag.mytheme;
+                @ViewBag.mysubtheme;
+            }
+            
+            <div class="form-group">
+                <p>
+                    An entry is required for the TopicItemId, enter id from the topic item you are updating, or
+                    leave entry at default of 7 for no association with any particular topic item
+                </p>
+                <label asp-for="BlogInfoId" class="control-label"></label>
+                <input readonly type="number" min="0" asp-for="BlogInfoId" class="form-control">
+                <span asp-validation-for="BlogInfoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogPostTitle" class="control-label"></label>
+                <input asp-for="BlogPostTitle" class="form-control" />
+                <span asp-validation-for="BlogPostTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogText" class="control-label"></label>
+                <textarea rows="10" cols="100" asp-for="BlogText" class="form-control" textarea></textarea>>
+                <span asp-validation-for="BlogText" class="text-danger"></span>
+            </div>
+            @{
+                DateTime myNow = DateTime.Now;
+                Model.PostCreateDate = myNow;
+            }
+            <div class="form-group">
+                <label asp-for="PostCreateDate" class="control-label"></label>
+                <input readonly type="DateTime-local" asp-for="PostCreateDate" class="form-control" />
+                <span asp-validation-for="PostCreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add your blog!" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

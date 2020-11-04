@@ -12,6 +12,8 @@ namespace EnhancedBlogger.ViewModels
     public class AThemesWithSubThemesViewModel
     {
         public BlogTheme blogTheme;  //so I have a theme
+        public BlogSubTheme blogSubTheme;  //so I have a theme
+        public IEnumerable<BlogTheme> blogThemes;  
         public IEnumerable<BlogSubTheme> blogSubThemes;  //and a list of subthemes to go with it
         
         public AThemesWithSubThemesViewModel()

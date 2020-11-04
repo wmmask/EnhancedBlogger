@@ -1,0 +1,56 @@
+﻿@model EnhancedBlogger.Models.GroupedItem
+
+@{
+    ViewData["Title"] = "Create an item in a group";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create an Item</h2>
+<h4>GroupedItem</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AddItem">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <p>An entry is required for the LogGroupingId, enter id of the Group you are placing this under.</p>
+                    <label asp-for="LogGroupingId" class="control-label"></label>
+                    <input type="number" min="1"  asp-for="LogGroupingId" class="form-control">
+                    <span asp-validation-for="LogGroupingId" class="text-danger"></span>
+                </div>
+
+                @{
+                    int? this2ID = ViewBag.my2ID;
+                    Model.BlogPostId = this2ID;
+                }
+                <div class="form-group">
+                    <label asp-for="BlogPostId" class="control-label"></label>
+                    <input readonly type="number" min="1"  asp-for="BlogPostId" class="form-control">
+                    <span asp-validation-for="BlogPostId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GroupedItemComment" class="control-label"></label>
+                    <textarea rows="10" cols="100" asp-for="GroupedItemComment" class="form-control"></textarea>
+                    <span asp-validation-for="GroupedItemComment" class="text-danger"></span>
+                </div>
+
+                @{
+                    DateTime myNow = DateTime.Now;
+                    Model.ItemCreateDate = myNow;
+                }
+                <div class="form-group">
+                    <label asp-for="ItemCreateDate" class="control-label"></label>
+                    <input readonly type="DateTime-local" asp-for="ItemCreateDate" class="form-control" />
+                    <span asp-validation-for="ItemCreateDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create the Item" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+

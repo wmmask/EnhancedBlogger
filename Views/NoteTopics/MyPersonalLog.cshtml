@@ -1,0 +1,73 @@
+﻿@model EnhancedBlogger.ViewModels.APersonalLogViewModel
+
+@{
+    ViewData["Title"] = "me & A Subtheme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+    For more information on enabling MVC for empty projects,
+    visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    <h2 class="plTitle">My Personal Log</h2>
+    <section class="pl-container">
+        <div class="pl-Group">
+            <h2>My Grouped Items</h2>
+            <h6><a class="myButtonC" asp-action="CreateGroup">Create New Group</a></h6>
+            @foreach (var grp in Model.logListGroups)
+            {
+                <h4>
+                    <a class="myButtonE" asp-action="EditGroup" asp-route-id="@grp.LogGroupingId">Edit Group</a>
+                    Group#:@Html.DisplayFor(m => grp.LogGroupingId), @Html.DisplayFor(m => grp.LogGroupingtitle)  Re: @Html.DisplayFor(m => grp.LogGroupingComment)
+                </h4>
+                <a class="myButtonC" asp-action="CreateItem">Create Item</a>
+
+                int precheck = grp.LogGroupingId;
+                //ViewBag.thislogged = precheck;
+                @foreach (var item in Model.itemsListInGroup)
+                {
+                    int? chk = @item.LogGroupingId;
+                    if (chk == precheck)
+                    {
+                        <h5>
+                            <a class="myButtonE" asp-action="EditItem" asp-route-id="@item.GroupedItemId">EditItem</a>
+                            Item#@Html.DisplayFor(m => item.GroupedItemId), Log#@Html.DisplayFor(m => item.LogGroupingId),
+                            Post#@Html.DisplayFor(m => item.BlogPostId): <br />
+                            @Html.DisplayFor(m => item.GroupedItemComment)
+                        </h5>
+                    }
+                }
+
+            }
+        </div>
+
+        <div class="wms-subFlexCont-X">
+            <div class="pl-subGroup1">
+                <h3>My Groups</h3>
+                @foreach (var grp in Model.logListGroups)
+                {
+                    <h5>
+                        Log# @Html.DisplayFor(m => grp.LogGroupingId): @Html.DisplayFor(m => grp.LogGroupingtitle)
+                        <br />@Html.DisplayFor(m => grp.LogGroupingComment)
+                    </h5>
+                }
+            </div>
+
+            <div class="pl-subGroup2">
+                <h3>My WorkSpace topics</h3>
+                @foreach (var wrk in Model.logListTopic)
+                {
+                    <h5>
+                        Topic# @Html.DisplayFor(m => wrk.NoteTopicId):
+                        @Html.DisplayFor(m => wrk.NoteTopicTitle)
+                        <br />
+                        @Html.DisplayFor(m => wrk.NoteTopicComment)
+                    </h5>
+                }
+            </div>
+        </div>
+    </section>
+
+}
+

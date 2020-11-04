@@ -1,37 +1,273 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
-body {
+body 
+{
     padding-top: 50px;
     padding-bottom: 20px;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
+.body-content 
+{
     padding-left: 15px;
     padding-right: 15px;
 }
+/* Customized Flex container for MyPErsonalLog*/
+.pl-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items:center;
+    
+    width: 1200px;
+    height: 600px;
+    background-color: lightblue;
+}
+
+/*
+.wms-subFlexCont-X {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+
+    width: 300px;
+    height: 700px;
+    background-color: lightblue;
+}
+*/
+/* Customized CSS FFlex Items for Groups = major items of page */
+.pl-Group {
+    order: 2;
+    /*flex: 1 1 200px;*/
+
+    margin: 10px;
+    padding: 20px;
+    width: 800px;
+    height: 560px;
+    
+    font-family: monospace;
+    font-size: 20px;
+    color: black;
+    background-color: lightyellow;
+    overflow: scroll;
+}
+
+/* Customized CSS for the subGroups = non major items of page */
+.pl-subGroup1 {
+    order: 0;
+    /*flex: 1 1 200px;*/
+    
+    margin: 10px;
+    padding: 20px;
+    
+    width: 450px;
+    height: 280px;
+    
+    font-family: monospace;
+    font-size: 20px;
+    
+    color: black;
+    background-color: lightgreen;
+    
+    overflow: scroll;
+}
+/* Customized CSS for the subGroups = non major items of page */
+.pl-subGroup2 {
+    order: 0;
+    /*flex: 1 1 200px;*/
+
+    margin: 10px;
+    padding: 20px;
+    width: 450px;
+    height: 280px;
+    font-family: monospace;
+    font-size: 20px;
+    color: black;
+    background-color: lightcoral;
+    overflow: scroll;
+}
+.plTitle {
+    text-align: center;
+}
+
+/********Subtheme Customization Page*/
+.sy-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 1200px;
+    height: 600px;
+    background-color: lightblue;
+}
+
+.syMain {
+    order: 0;
+    /*flex: 1 1 200px;*/
+    margin: 10px;
+    padding: 20px;
+    width: 800px;
+    height: 560px;
+    font-family: monospace;
+    font-size: 20px;
+    color: black;
+    background-color: #784A91;
+    overflow: scroll;
+}
+
+.syGroups {
+    order: 0;
+    /*flex: 1 1 200px;*/
+    margin: 10px;
+    padding: 20px;
+    width: 450px;
+    height: 280px;
+    font-family: monospace;
+    font-size: 20px;
+    color: black;
+    background-color: lightgreen;
+    overflow: scroll;
+}
+.syTopics {
+    order: 0;
+    /*flex: 1 1 200px;*/
+    margin: 10px;
+    padding: 20px;
+    width: 450px;
+    height: 280px;
+    font-family: monospace;
+    font-size: 20px;
+    color: black;
+    background-color: lightcoral;
+    overflow: scroll;
+}
+
+.syTitle {
+    text-align: center;
+}
+
+/******************Customized grid layoput for myWorkSpace*/
+.wsGrid-container {
+    display: grid;
+    grid-template-columns:  17% 16% 16% 16% 16% 17%; /* 20% 20% 20% 20% 20%; */
+    grid-template-rows:     10px 200px 200px 180px;
+    grid-gap: 5px 5px;
+    justify-content: space-between;
+    align-content: space-evenly;
+
+    background-color: lightblue;
+    padding: 5px;
+}
+/* Style the title */
+.wsTitle {
+    grid-area: 1/1/2/7;
+    background-color: beige;
+    color: black;
+    padding: 0px 2px 5px 1px;
+    text-align: center;
+    overflow: hidden;
+}
+/* Style the workspace list */
+.wsMain {
+    grid-area: 2/3/4/7;
+    background-color: lightgray;
+    color: black;
+    padding: 10px;
+    overflow: scroll;
+}
+/* Style the topics list */
+.wsTopics {
+    grid-area: 2/1/3/3;
+    background-color: lightcoral;
+    color: black;
+    padding: 2px 10px;
+    overflow: scroll;
+}
+/* Style the groups list */
+.wsGroups {
+    grid-area: 3/1/4/3;
+    background-color: lightgreen;
+    color: black;
+    padding: 2px 10px;
+    overflow: scroll;
+}
+/* Style the keywords */
+.wsKeywords {
+    grid-area: 4/2/5/4;
+    background-color: lightpink;
+    color: black;
+    padding: 2px 10px;
+    overflow: scroll;
+}
+/* Style the links */
+.wsLinks {
+    grid-area: 4/4/5/6;
+    background-color: tan;
+    color: black;
+    padding: 2px 10px;
+    overflow: scroll;
+}
+
+
+
+.myToolbar li{
+    display: inline;
+    background-color: #808080;
+    border: 1px;
+    border-color: #F3F3F3;
+    margin: 2px;
+    padding: 5em;
+}
+.myButtonC {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #808080;
+    border: solid 1px;
+    border-color: black;
+    color: white;
+    padding: 1px 1px;
+    text-align: center;
+    font-size: 10px;
+    margin: 1px 2px;
+    cursor: pointer;
+}
+.myButtonE {
+    text-decoration: none;
+    display: inline-block;
+    background-color: white;
+    border: solid 1px;
+    border-color: gray;
+    color: black;
+    padding: 1px 1px;
+    text-align: center;
+    font-size: 10px;
+    margin: 1px 2px;
+    cursor: pointer;
+}
 
 /* Carousel */
-.carousel-caption p {
+.carousel-caption p 
+{
     font-size: 20px;
     line-height: 1.4;
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+.carousel-inner .item img[src$=".svg"] 
+{
     width: 100%;
 }
 
 /* QR code generator */
-#qrCode {
+#qrCode 
+{
     margin: 15px;
 }
 
 /* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
+@media screen and (max-width: 767px) 
+{	/* Hide captions */
+    .carousel-caption 
+	{
         display: none;
     }
 }

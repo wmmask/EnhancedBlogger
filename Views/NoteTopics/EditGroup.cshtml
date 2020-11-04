@@ -1,0 +1,52 @@
+﻿@model EnhancedBlogger.Models.LogGrouping
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>LogGrouping</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditGroup">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="LogGroupingId" />
+            <div class="form-group">
+                <label asp-for="UserProfileId" class="control-label"></label>
+                <input type="number" min="1" value="1" asp-for="UserProfileId" class="form-control">
+                <span asp-validation-for="UserProfileId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LogGroupingtitle" class="control-label"></label>
+                <input asp-for="LogGroupingtitle" class="form-control" />
+                <span asp-validation-for="LogGroupingtitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LogGroupingComment" class="control-label"></label>
+                <input asp-for="LogGroupingComment" class="form-control" />
+                <span asp-validation-for="LogGroupingComment" class="text-danger"></span>
+            </div>
+            @{
+                DateTime myNow = DateTime.Now;
+                Model.GroupingCreateDate = myNow;
+            }
+            
+            <div class="form-group">
+                <label asp-for="GroupingCreateDate" class="control-label"></label>
+                <input readonly type="DateTime-local"  asp-for="GroupingCreateDate" class="form-control" />
+                <span asp-validation-for="GroupingCreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update Log Group" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="MyPersonalLog">Back to List</a>
+</div>
+

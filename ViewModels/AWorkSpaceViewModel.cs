@@ -12,6 +12,7 @@ namespace EnhancedBlogger.ViewModels
 {
     public class AWorkSpaceViewModel
     {
+        //Bringing in models related to: Themes, Subthemes, and Blogs
         public BlogTheme themeWork;
         public BlogSubTheme subThemesWork;
         public BlogInfo infoWork;
@@ -21,6 +22,15 @@ namespace EnhancedBlogger.ViewModels
         public IEnumerable<BlogInfo> infoworkList;
         public IEnumerable<BlogPost> postWorkList;
 
+        //Bringing in models related to: Personal Log Summary
+        public LogGrouping logGroups;
+        public IEnumerable<LogGrouping> logListGroups;
+
+        //Bringing in models related to: Prpfile Summary
+        public UserProfile up;
+        public IEnumerable<UserProfile> pu;
+
+        //Bringing in models related to: Work Space
         public NoteTopic myTopic;
         public TopicItem myItem;
         public TopicKeyword myKeyword;

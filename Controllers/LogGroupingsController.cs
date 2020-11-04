@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EnhancedBlogger.Models;
+using EnhancedBlogger.ViewModels;
 
 namespace EnhancedBlogger.Controllers
 {
@@ -51,12 +52,14 @@ namespace EnhancedBlogger.Controllers
             return View();
         }
 
+
         // POST: LogGroupings/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LogGroupingId,UserProfileId,LogGroupingtitle,LogGroupingComment,GroupingCreateDate")] LogGrouping logGrouping)
+        public async Task<IActionResult> Create([Bind("LogGroupingId,UserProfileId,LogGroupingtitle," +
+            "LogGroupingComment,GroupingCreateDate")] LogGrouping logGrouping)
         {
             if (ModelState.IsValid)
             {

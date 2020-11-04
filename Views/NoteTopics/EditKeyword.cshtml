@@ -1,0 +1,54 @@
+﻿@model EnhancedBlogger.Models.TopicKeyword
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>TopicKeyword</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditKeyword">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TopicKeywordId">
+            <div class="form-group">
+                <p>
+                    An entry is required for the BlogPostId, enter id from the blogpost you are commenting on, or
+                    leave entry at default of 7 for no association with any particular blog post.
+                </p>
+                <label asp-for="TopicItemId" class="control-label"></label>
+                <input type="number" min="1"  asp-for="TopicItemId" class="form-control">
+                <span asp-validation-for="TopicItemId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TopicKeywordName" class="control-label"></label>
+                <input asp-for="TopicKeywordName" class="form-control">
+                <span asp-validation-for="TopicKeywordName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TopicKeywordRemark" class="control-label"></label>
+                <input asp-for="TopicKeywordRemark" class="form-control">
+                <span asp-validation-for="TopicKeywordRemark" class="text-danger"></span>
+            </div>
+            @{
+                DateTime myNow = DateTime.Now;
+                Model.KeywordCreateDate = myNow;
+            }
+            <div class="form-group">
+                <label asp-for="KeywordCreateDate" class="control-label"></label>
+                <input readonly type="DateTime-local" asp-for="KeywordCreateDate" class="form-control" />
+                <span asp-validation-for="KeywordCreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="MyWorkSpace">Back to List</a>
+</div>

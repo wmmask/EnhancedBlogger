@@ -1,0 +1,106 @@
+﻿@model EnhancedBlogger.ViewModels.ASubthemesBlogsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="font-italic">Pick a theme:</h2>
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- FIRST COLUMN = EMPTY -->
+        </div>
+        <!-- OVERALL CAROUSEL DIV -->
+        <!--Carousel   new-->
+        <div id="myCarousel" class="carousel slide col-md-4" data-ride="carousel" data-interval="4000">
+            <ol class="carousel-indicators">
+                <!--laysout data targets for the carousel -->
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+            <!-- Wrapper for slides, the 3rd section of the carousel -->
+            <div class="carousel-inner">
+                <!-- each picture is wrapped in a div of class "carousel-item" -->
+                <div class="item active">
+                    <div class="card-body">
+                        <img class="img-responsive" src="~/images/lion_king.jpg" alt="Lion King" />
+                        @{
+                            int id; id = 6;
+                        }
+                        @foreach (var item in Model.thisThemeList)
+                        {
+                            int m = item.BlogThemeId;
+                            if (m == id)
+                            {
+                                <h3>@Html.DisplayFor(modelItem => item.BlogThemetitle)</h3>
+                            }
+                        }
+                        <h3><a href="/NoteTopics/ThemeXpage/6">Choose This Theme</a></h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card-body">
+                        <img class="img-responsive" src="~/images/Aladdin.jpg" alt="Aladdin">
+                        @{ id = 7; }
+                        @foreach (var item in Model.thisThemeList)
+                        {
+                            int m = item.BlogThemeId;
+                            if (m == id)
+                            {
+                                <h3 class="text=color: blue">@Html.DisplayFor(modelItem => item.BlogThemetitle)</h3>
+                            }
+                        }
+                        <h3><a class="card-text" href="/NoteTopics/ThemeXpage/7">Choose This Theme</a></h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card=body">
+                        <img class="img-responsive" src="~/images/last_jedi.jpg" alt="Star Wars: The Last Jedi">
+                        @{ id = 8; }
+                        @foreach (var item in Model.thisThemeList)
+                        {
+                            int m = item.BlogThemeId;
+                            if (m == id)
+                            {
+                                <h3>@Html.DisplayFor(modelItem => item.BlogThemetitle)</h3>
+                            }
+                        }
+                        <h3><a class="card-text" href="/NoteTopics/ThemeXpage/8">Choose This Theme</a></h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card-body">
+                        <img class="img-responsive" src="~/images/Lego-Movie-2.jpg" alt="he Lego Movie 2">
+                        @{ id = 9;
+                        }
+                        @foreach (var item in Model.thisThemeList)
+                        {
+                            int m = item.BlogThemeId;
+                            if (m == id)
+                            {
+                                <h3>@Html.DisplayFor(modelItem => item.BlogThemetitle)</h3>
+                            }
+                        }
+                        <h3><a class="card-text" href="/NoteTopics/ThemeXpage/9">Choose This Theme</a></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- Left and right controlsm 4th and final section of the carousel -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> <!-- FOR THE CAROUSEL ID DIV -->
+        <div class="col-md-2">  <!-- OVERALL CAROUSEL DIV -->
+            <!-- column 3 blaNK -->
+         </div>
+    </div> <!-- class="row"-->
+</section> <!-- class="container">-->

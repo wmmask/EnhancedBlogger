@@ -11,6 +11,7 @@ namespace EnhancedBlogger.ViewModels
 {
     public class APersonalLogViewModel
     {
+        //Bringing in models related to: Themes, Subthemes, and Blogs
         public BlogTheme logTheme;  
         public BlogSubTheme logSubThemes;
         public BlogInfo logInfo;
@@ -20,10 +21,15 @@ namespace EnhancedBlogger.ViewModels
         public IEnumerable<BlogInfo> logListInfo;
         public IEnumerable<BlogPost> logListPost;
 
-        public NoteTopic logNote;
-        public IEnumerable<NoteTopic> logListNote;
+        //Bringing in models related to: WorkSpace Summary
+        public NoteTopic logtopic;
+        public IEnumerable<NoteTopic> logListTopic;
 
+        //Bringing in models related to: Prpfile Summary
+        public UserProfile up;
+        public IEnumerable<UserProfile> pu;
 
+        //Bringing in models related to: Personal Log
         public LogGrouping logGroups;
         public GroupedItem itemsInGroup;
         public IEnumerable<LogGrouping> logListGroups;  

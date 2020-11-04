@@ -18,14 +18,7 @@ namespace EnhancedBlogger.Controllers
         {
             _context = context;
         }
-        public IActionResult ThemesAndSubThemes(int id)//calling BlogThemeId
-        {
-            AThemesWithSubThemesViewModel myThemesSubs = new AThemesWithSubThemesViewModel();
-            myThemesSubs.blogTheme = _context.BlogTheme.FirstOrDefault(t => t.BlogThemeId == id);
-            myThemesSubs.blogSubThemes = _context.BlogSubTheme.Where(s => s.BlogThemeId == id);
 
-            return View(myThemesSubs);
-        }
 
 
         // GET: BlogThemes

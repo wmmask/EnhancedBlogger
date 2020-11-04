@@ -1,0 +1,44 @@
+﻿@model EnhancedBlogger.Models.TopicLink
+
+@{
+    ViewData["Title"] = "Create a New Link Reference";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create a new link reference.</h2>
+<h4>TopicLink</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateLink">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <p>
+                    An entry is required for the TopicItemId, enter id from the topic item you are updating, or
+                    leave entry at default of 7 for no association with any particular topic item
+                </p>
+                <label asp-for="TopicItemId" class="control-label"></label>
+                <input required type="number" min="0" value="7" asp-for="TopicItemId" class="form-control">
+                <span asp-validation-for="TopicItemId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TopicLinkRemark" class="control-label"></label>
+                <input asp-for="TopicLinkRemark" class="form-control" />
+                <span asp-validation-for="TopicLinkRemark" class="text-danger"></span>
+            </div>
+
+            @{
+                DateTime myNow = DateTime.Now;
+                Model.LinkCreateDate = myNow;
+            }
+            <div class="form-group">
+                <label readonly type="DateTime-local" asp-for="LinkCreateDate" class="control-label"></label>
+                <input asp-for="LinkCreateDate" class="form-control" />
+                <span asp-validation-for="LinkCreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create link reference" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

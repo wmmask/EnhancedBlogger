@@ -1,0 +1,62 @@
+﻿@model EnhancedBlogger.ViewModels.ASubthemesBlogViewModel
+@{
+    ViewData["Title"] = "Blog Posts For A Theme & A Subtheme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    <h2>Theme: @Html.DisplayFor(modelItemT => modelItemT.pageTheme.BlogThemetitle), 
+    Subtheme: @Html.DisplayFor(t => Model.pageSubTheme.BlogSubThemetitle) </h2>
+    <section class="sy-container">
+        <div class="syMain">
+            <h2>Let's Blog</h2>
+
+            @foreach (var grp in Model.pageInfoList)
+            {
+                <h4>
+                    BlogHeader: @Html.DisplayFor(m => grp.BlogInfoId), @Html.DisplayFor(m => grp.BlogInfoTitle)
+                </h4>
+
+                int precheck = grp.BlogInfoId;
+                @foreach (var item in Model.pageBlogList)
+                {
+                    int? chk = item.BlogInfoId;
+                    if (chk == precheck & item.BlogPostId != 9 & grp.BlogInfoId != 26) // and blogpostnot equal to 9   and bloginfoid not equal to 26
+                    {
+                        <h5>
+                            <a class="myButtonC" asp-action="AddItem" asp-route-id="@item.BlogPostId">Addto Log</a>
+                            Blog# @Html.DisplayFor(m => item.BlogPostId), Info# @Html.DisplayFor(m => item.BlogInfoId)
+                            <br /> <a class="myButtonE" asp-action="AddTopicItem" asp-route-id="@item.BlogPostId">Add to WS.</a>
+                            Title: @Html.DisplayFor(m => item.BlogPostTitle)
+                            <br />@Html.DisplayFor(m => item.BlogText)
+                        </h5>
+                     }
+                 }
+
+              }
+        </div>
+        <div>
+            <div class="syGroups">
+                <h3>My Groups</h3>
+                @foreach (var grp in Model.thisGroupList)
+                {
+                    <h5>
+                        Group# @Html.DisplayFor(m => grp.LogGroupingId), 
+                        @Html.DisplayFor(m => grp.LogGroupingtitle)
+                        <br />@Html.DisplayFor(m => grp.LogGroupingComment )
+                    </h5>
+                }
+            </div>
+
+            <div class="syTopics">
+                <h3>My WorkSpace topics</h3>
+                @foreach (var wrk in Model.thisNoteList)
+                {
+                    <h5>
+                        Topic#: @Html.DisplayFor(m => wrk.NoteTopicId), @Html.DisplayFor(m => wrk.NoteTopicTitle)
+                        <br />@Html.DisplayFor(m => wrk.NoteTopicComment)
+                    </h5>
+                }
+            </div>
+        </div>
+    </section>
+}

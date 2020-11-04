@@ -58,7 +58,8 @@ namespace EnhancedBlogger.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GroupedItemId,LogGroupingId,BlogPostId,GroupedItemComment,ItemCreateDate")] GroupedItem groupedItem)
+        public async Task<IActionResult> Create([Bind("GroupedItemId,LogGroupingId,BlogPostId," +
+            "GroupedItemComment,ItemCreateDate")] GroupedItem groupedItem)
         {
             if (ModelState.IsValid)
             {
@@ -66,10 +67,13 @@ namespace EnhancedBlogger.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BlogPostId"] = new SelectList(_context.BlogPost, "BlogPostId", "BlogText", groupedItem.BlogPostId);
-            ViewData["LogGroupingId"] = new SelectList(_context.LogGrouping, "LogGroupingId", "LogGroupingComment", groupedItem.LogGroupingId);
+            ViewData["BlogPostId"] = new SelectList(_context.BlogPost, "BlogPostId", "BlogText", 
+                groupedItem.BlogPostId);
+            ViewData["LogGroupingId"] = new SelectList(_context.LogGrouping, "LogGroupingId", 
+                "LogGroupingComment", groupedItem.LogGroupingId);
             return View(groupedItem);
         }
+
 
         // GET: GroupedItems/Edit/5
         public async Task<IActionResult> Edit(int? id)

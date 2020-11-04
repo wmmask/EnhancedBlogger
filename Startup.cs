@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using EnhancedBlogger.Models;
 
+
 namespace EnhancedBlogger
 {
     public class Startup
@@ -65,7 +66,8 @@ namespace EnhancedBlogger
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=LogGroupings}/{action=Index}/{id?}");
+                    template: "{controller=NoteTopics}/{action=PickTheme}/{id?}");
+                                //use action=PickTheme as my home page
             });
         }
     }

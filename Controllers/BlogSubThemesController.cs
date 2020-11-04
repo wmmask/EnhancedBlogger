@@ -19,22 +19,7 @@ namespace EnhancedBlogger.Controllers
             _context = context;
         }
 
-        public IActionResult ThemeSubsPosts(int td) // calling in BlogSubThemeId
-        {
-            ASubthemesBlogsViewModel mySubsPosts = new ASubthemesBlogsViewModel();
-            mySubsPosts.thisSubThemes = _context.BlogSubTheme.FirstOrDefault
-                    (s => s.BlogSubThemeId == td);
 
-            var queryInfo = _context.BlogInfo.Where(i => i.BlogSubThemeId == td);
-            //var subsBlogs = from i in queryInfo select i.BlogInfoId;
-            mySubsPosts.blogInfo = queryInfo ;
-                //_context.BlogInfo.Where(i => i.BlogSubThemeId == td);
-                        //int mytheme;
-            //mytheme = (int)mySubsPosts.thisSubThemes.BlogThemeId;
-            //mySubsPosts.thisTheme=_context.BlogTheme.FirstOrDefault(t=>t.BlogSubThemeId==thisSubThemes.BlogThemeId);
-
-            return View(mySubsPosts);
-        }
 
         // GET: BlogSubThemes
         public async Task<IActionResult> Index()

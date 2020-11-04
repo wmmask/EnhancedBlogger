@@ -1,0 +1,50 @@
+﻿@model EnhancedBlogger.Models.TopicItem
+
+@{
+    ViewData["Title"] = "Create an item under the topic.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create an item for the topic.</h2>
+<h4>TopicItem</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="CreateTopicItem">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <p>An entry is required for the NoteTopicId, enter id of the Topic you are placing this under.</p>
+                    <label asp-for="NoteTopicId" class="control-label"></label>
+                    <input required type="number" min="1" asp-for="NoteTopicId" class="form-control">
+                    <span asp-validation-for="NoteTopicId" class="text-danger"></span>
+                </div>
+                @{
+                    int? thisID = ViewBag.myID;
+                    Model.BlogPostId = thisID;
+                 }
+                <div class="form-group">
+                    <label asp-for="BlogPostId" class="control-label"></label>
+                    <input readonly type="number" min="1" asp-for="BlogPostId" class="form-control">
+                    <span asp-validation-for="BlogPostId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TopicItemThought" class="control-label"></label>
+                    <textarea rows="10" cols="100" asp-for="TopicItemThought" class="form-control"></textarea>
+                    <span asp-validation-for="TopicItemThought" class="text-danger"></span>
+                </div>
+
+                @{
+                    DateTime myNow = DateTime.Now;
+                    Model.ItemCreateDate = myNow;
+                }
+                <div class="form-group">
+                    <label asp-for="ItemCreateDate" class="control-label"></label>
+                    <input readonly type="DateTime-local" asp-for="ItemCreateDate" class="form-control" />
+                    <span asp-validation-for="ItemCreateDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create the item" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>

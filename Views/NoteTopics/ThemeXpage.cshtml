@@ -1,0 +1,27 @@
+﻿@model EnhancedBlogger.ViewModels.ASubthemesBlogsViewModel
+@{
+    ViewData["Title"] = "A Theme & Its Subthemes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="jumbotron" max-height: 200px>
+    <img src='~/images/tomatoicon.png' style="display:inline-block; float:left">
+    <p></p>
+
+    <h2 >Themes and Subthemes</h2>
+    <h1 class="text-center font-italic">@Html.DisplayFor(modelItem => modelItem.thisTheme.BlogThemetitle)</h1>
+    <h3 class="text-center ">Choose a Sub-theme!</h3>
+</section>
+<div>
+    @{foreach (var item in Model.thisSubThemeList)
+        {
+            <h2>
+                @Html.DisplayFor(modelItem => item.BlogSubThemeId).
+            @Html.DisplayFor(modelItem => item.BlogSubThemetitle)
+        </h2>
+        <h4><a href="/NoteTopics/SubThemeYpage/@item.BlogSubThemeId">Click to blog @item.BlogSubThemetitle</a></h4>
+    }@*end of foreach*@
+    }
+</div>
+
+
+

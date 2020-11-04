@@ -1,0 +1,46 @@
+﻿@model EnhancedBlogger.Models.NoteTopic
+
+@{
+    ViewData["Title"] = "Create a new Note";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<h4>NoteTopic</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateTopic">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserProfileId" class="control-label"></label>
+                <input type="number" min="1" value="1" asp-for="UserProfileId" class="form-control" >
+                <span asp-validation-for="UserProfileId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoteTopicTitle" class="control-label"></label>
+                <input  asp-for="NoteTopicTitle" class="form-control">
+                <span asp-validation-for="NoteTopicTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoteTopicComment" class="control-label"></label>
+                <input asp-for="NoteTopicComment" class="form-control" />
+                <span asp-validation-for="NoteTopicComment" class="text-danger"></span>
+            </div>
+
+            @{
+                DateTime myNow = DateTime.Now;
+                Model.TopicCreateDate = myNow;
+            }
+            <div class="form-group">
+                <label asp-for="TopicCreateDate" class="control-label"></label>
+                <input readonly type="DateTime-local" asp-for="TopicCreateDate" class="form-control" />
+                <span asp-validation-for="TopicCreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create the Topic" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
